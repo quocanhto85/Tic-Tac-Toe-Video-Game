@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login to play Tic-Tac-Toe</title>
+        <link rel = "stylesheet" text = "text/css" href = "./css/loginPage.css">
+        <script type = "text/javascript" src = "https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+    </head>
+    <body>
+        <div class = "loginPage">
+            <div class = "form">                
+                <form id = "Loginform">
+                    <div id = "error"></div>
+                    <input type = "text" name = "username-login" placeholder = "Username" required>
+                    <input type = "password" name = "password-login" placeholder = "Password" required>
+                    <button type = "submit"><b>LOGIN</b></button>
+                    <p class = "message">Not Registered? <a href = "#">Create An Account</a></p>
+                </form>
+
+                <form class = "register-form" id = "register-form">
+                        <input type = "text" name = "username-register" placeholder = "Username" required>
+                        <input type = "password" name = "password-register" placeholder = "Password" required>
+                        <input type = "text" name = "name-register" placeholder = "Name" required>
+                        <input type = "text" name = "email-register" placeholder = "Email Address" required>
+                        <button type = "submit" id = "btn_sub">Create Account</button>  
+                        <p class = "message">Already Registered?<a href = "#">Sign In</a></p>
+                </form>
+            </div>
+
+            <script type = "text/javascript" src = "/JS/loginPage.js"></script>
+            <script>
+                var form = document.getElementById('Loginform');
+                var error = document.getElementById('error');
+
+                form.addEventListener('submit', (e) => {
+                  e.preventDefault();
+                  $.post("/login",
+                  {
+                      username: document.getElementsByName('username-login')[0].value,
+                      password: document.getElementsByName('password-login')[0].value
+                  },
+                  function(data, status){
+                      if(data.type == 0){
+                          window.alert("The username or password is invalid, please try again")
+                      }
+                      else if(data.type == 2){
+                          window.alert("This account is busy")
+                      }
+                      else{
+                          localStorage.setItem('username', data.username)
+                          localStorage.setItem('password', data.password)
+                          localStorage.setItem('name', data.name)
+                          localStorage.setItem('id', data.id)
+                          window.location = "/caroPage";
+                      }
+                  });
+                })
+            </script>
+
+            <script type = "text/javascript">
+                var form = document.getElementById('register-form');
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    $.post("/Register",
+                    {
+                        username: document.getElementsByName('username-register')[0].value,
+                        password: document.getElementsByName('password-register')[0].value,
+                        name : document.getElementsByName('name-register')[0].value,
+                        email: document.getElementsByName('email-register')[0].value
+                    },
+                    function(data, status){
+                        if(data.type == 0){
+                            console.log("ERROR!");
+                            window.alert("This account is already existed.")
+                        }
+                        else{
+                            console.log("SUCCESSFUL!");
+                            window.alert("Your account has been registered successfully");
+                            localStorage.setItem('username', data.username)
+                            localStorage.setItem('password', data.password)
+                            localStorage.setItem('name', data.name)
+                            localStorage.setItem('id', data.id)
+                            window.location = "/caroPage"
+                        }
+                    }
+                    )
+                }
+                )
+            </script>
+        </div>
+    </body>
+</html>

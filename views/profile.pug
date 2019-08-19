@@ -1,0 +1,59 @@
+doctype html
+// client
+html
+  head
+    title Caro
+    link(rel='stylesheet', type='text/css', href='/styles/caro.css')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
+  body(style='background-color : #f5f6f7')
+    .header
+      a.header-btn.logo(href='/caro')
+        i.fas.fa-home(style='font-size: 100%;color: white; margin: auto 6px;')
+      #account.account
+      .account-click
+        #user-info.user-info #{username}
+        .border-bottom
+          a(href='/profile' style='text-decoration : none')
+            .settings-section
+              b Hồ sơ
+          a(href='/account' style='text-decoration : none')
+            .settings-section
+              b Tài khoản
+          a(href='/result' style='text-decoration : none')
+            .settings-section
+              b Thành tích
+          a(href='/setting' style='text-decoration : none')
+            .settings-section
+              b Cài đặt
+        a(href='/logout' style='text-decoration : none')
+          .settings-section
+            b(style='color : black') Đăng xuất
+    div#profile(style='width: 1000px; margin: 0 auto; padding: 8px; padding-top: 40px;')
+      div(style='font-size: 30px; color: blue; width: 100%;margin-left: 40px;') 
+        b HỒ SƠ
+      div#content(style='margin-top: 10px; width: 100%; display: flex; height: 100px;')
+        div(style='width: 35%; background-color: white; align-items: center;')
+        div(style='width: calc((100% * 0.65) - 20px); margin-left: 20px; background-color: white;')
+          div(style='') 
+            div Tỉ lệ thắng thua
+            div(style='background-color: #365899; color: white; display: flex;')
+              div(style='flex: 1 1; text-align: center;') 
+                div Đã chơi
+                div 10
+              div(style='flex: 1 1; text-align: center;') 
+                div Thắng
+                div 8
+              div(style='flex: 1 1; text-align: center;')  
+                div Tỉ lệ thắng
+                div 80%
+          div Lịch sử chơi
+            div(style='background-color: #365899; color: white; display: flex;')
+              div.img-play(style='flex:1 1')
+              div() Vs.
+              div(style='flex:1 1') Ánh
+              div(style='flex:1 1') WIN
+    script(type='text/javascript', src='/public/JS/account.js')
+    script(src='/public/JS/jquery-1.10.2.min.js')
+    script(src='/public/JS/socket.js')
+    script(src='/public/JS/session.js')
+

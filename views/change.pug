@@ -1,0 +1,62 @@
+doctype html
+
+html
+  head 
+    title Caro
+    link(rel = 'stylesheet', type = 'text/css', href = '/public/css/caroPage.css')
+    link(rel = 'stylesheet', href = 'https://use.fontawesome.com/releases/v5.8.1/css/all.css' 
+    integrity = 'sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin = 'anonymous')
+  body(style = 'background-color: #f5f6f7')
+    .header
+      a.header-btn.logo(href = '/caro')
+        i.fas.fa-home(style = 'font-size: 100%; color: white; margin: auto 6px;')
+      #account.account
+      .account-click
+        #user-info.user-info #{username}
+        .border-bottom
+          a(href = '/profile' style = 'text-decoration: none')
+            .settings-section
+              b Profile
+          a(href = '/account' style = 'text-decoration: none')
+            .settings-section
+              b Account
+          a(href = '/result' style = 'text-decoration: none')
+            .settings-section
+              b Achievemnt
+          a(href = '/setting' style = 'text-decoration: none')
+            .settings-section
+              b Setting
+          a(href = '/logout' style = 'text-decorationn: none')
+            .settings-section
+              b(style = 'color: black') Logout
+      div#profile(style = 'width: 1000px; marginn: 0 auto; padding: 8px; padding-top: 40px;')
+        div(style = 'font-size: 30px; color: blue; width: 100%; margin-left: 40px;')
+            b ACCOUNT INFO
+        div#content(style = 'marginn-top: 10px; width: 100%; display: flex; height: 250px;')
+           div(style = 'width: 35%; background-color: white; align-items: center;')
+              form(action = '/changeok', method = 'POST', style = 'margin-top: 20px')
+                .form-group(style = 'margin-right: 15px; margin-left: 15px; margin-bottom: 15px;')
+                    label.col-sm-2.control-label(style = 'float: left; width: 80px;') Username
+                        .col-sm-8
+                            input.form-control(type = 'text', readonly = '', placeholder = 'username', name = 'username', value = "")
+                .form-group(style = 'margin-right: 15px; marginn-left: 15px; margin-bottom: 15px;')
+                    label.col-sm-2.control-label(style = 'float: left; width: 80px;') Password
+                        .col-sm-8 
+                            input.form-control(type = 'text', placeholder = 'password', name = 'password', value = "")
+                .form-group(style = 'margin-right: 15px; margin-left: 15px; margin-bottom: 15px;')
+                    label.col-sm-2.control-label(style = 'float: left; width: 80px;') Name
+                        .col-sm-8
+                            input.form-control(type = 'text', placeholder = 'name', name = 'name', value = "")
+                .form-group(style = 'margin-right: 15px; margin-left: 15px; margin-bottom: 15px;')
+                    label.col-sm-2.control-label(style = 'float: left; width: 80px;') Email
+                        .col-sm-8
+                            input.form-control(type = 'text', placeholder = 'name', name = 'name', value = "")
+                .form-group
+                    button(style = 'margin-left: 160px;' onclick = 'change()') Fix Data
+
+script(type='text/javascript', src='/public/JS/account.js')
+script(src='/public/JS/jquery-1.10.2.min.js')
+script(src='/public/JS/socket.js')
+script(src='/public/JS/session.js')
+script(src='/public/JS/account_inf.js')
+script(src='/public/JS/account_change.js')

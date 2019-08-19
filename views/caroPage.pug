@@ -1,0 +1,46 @@
+doctype html
+
+html(lang = "en")
+    head
+        title Caro 
+        meta(charset = 'utf-8')
+        link(rel = 'stylesheet', type = 'text/css', href = './css/caroPage.css')
+        link(rel = 'stylesheet', href = 'https://use.fontawesome.com/releases/v5.8.1/css/all.css', 
+        integrity = 'sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin = 'anonymous')
+    body
+        .header(style = 'z-index: 100')
+          a.header-btn.logo(href = '/caroPage')
+            i.fas.fa-home(style = 'font-size: 100%; color: white; margin: auto 6px')
+          #account.account
+          .account-click
+            #user-info.user-info
+            .border-bottom
+              a(href = '/profile', style = 'text-decoration: none')
+                .settings-section
+                  b Profile
+              a(href = '/account', style = 'text-decoration: none')
+                .settings-section
+                  b Account
+              a(href = '/result', style = 'text-decoration: none')
+                .settings-section
+                  b Achievements
+              a(href = '/setting', style = 'text-decoration: none')
+                .settings-section
+                  b Logout
+          #body(style = 'position: relative')
+            h1 Tic Tac Toe Game
+            #caro(style = 'position: relative')
+              h2 Choose Game Mode
+              .mid
+                button#btn1 
+                  strong PLAY WITH FRIEND
+                button#btn2(style = 'margin-top: 20px'/*; onclick = "redirect2()"*/)
+                  strong PLAY WITH BOT
+
+script(type = 'text/javascript', src = '/JS/account.js')
+script(src = '/JS/jquery-1.10.2.min.js')  
+script(src='/socket.io/socket.io.js')
+
+script(src = '/JS/socket.js')
+script(src = '/JS/session.js')          
+           
